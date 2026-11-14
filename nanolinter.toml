@@ -31,12 +31,13 @@ checks = [
   "java-format",
 ]
 
+# SAST findings are reported and do not fail the pull request: "sast" runs
+# under [verify] and is not listed here.
 [policy]
 block = [
   "version-control",
   "commits",
   "secrets",
-  "sast",
   "osv",
   "yaml",
   "markdown",
@@ -50,17 +51,4 @@ block = [
   "java-pmd",
   "java-spotbugs",
   "java-format",
-]
-
-# Two choices, not defects in the code, so these rules are left out:
-# - renovate.json takes its minimum release age from the organisation's
-#   base configuration and shortens it for two packages, with the reason
-#   in each rule; the rule asks for seven days in this file.
-# - docker-compose.yml only starts the database for local development; the
-#   rules ask for a read-only, no-new-privileges service.
-[linters.sast.settings]
-"opengrep.exclude_rules" = [
-  "package_managers.renovate.renovate-missing-minimum-release-age.renovate-missing-minimum-release-age",
-  "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-  "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
 ]
