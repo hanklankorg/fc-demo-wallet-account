@@ -5,10 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.10] - 2026-10-20
+## [0.1.11] - 2026-11-15
+
+### Added
+
+- Add HSM client id endpoints for accounts
+- Add missing crv (#62)
+- Add codeowners (#58)
+- Add request-response logging (#55)
+- Add sonarqube analysis (#52)
+- Add more tests for increased coverage (#49)
+- Add test tools
+- Add security envelope and wallet key to database (#37)
+- Add ecosystem integration test workflow
+- Add no-op version control linter
+- Add spotbugs exclude filter to suppress EI_EXPOSE_REP and EI_EXPOSE_REP2 errors
+- Add spotbugs exclude filter to suppress NM_METHOD_NAMING_CONVENTION errors
+- Add bare bone spring boot application
 
 ### Changed
 
+- Use the lab's Forge CI layer
+- Name the snapshot and release flows as the other projects do
+- Name the snapshot flow release-snapshot-workflow.yml
+- Report SAST findings without failing the pull request
+- Migrate workflows to forge-ci
+- Pin postgres docker tag to ca0bd48 (#97)
 - Stop storing wallet key and personal data (#91)
 - Update java non-major (#94)
 - Update diggsweden/wallet-ecosystem digest to 002f8a4 (#96)
@@ -25,143 +47,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update github actions (#79)
 - Update dependency prettier to v3.9.6 (#78)
 - Update java major to v53 (#28)
-
-### Fixed
-
-- Example json syntax (#84)
-- Api spec and log fix (#76)
-
-### Removed
-
-- Remove mise paranoid setting (#93)
-
-## [0.1.9] - 2026-07-31
-
-### Changed
-
 - Api-spec improvements (#73)
-
-
-## [0.1.8] - 2026-07-28
-
-### Changed
-
 - Handle unique kid in db (#72)
-
-
-## [0.1.7] - 2026-07-27
-
-### Changed
-
 - Log request and response separately (#69)
-
-
-## [0.1.6] - 2026-07-16
-
-### Fixed
-
-- Api component test improvements (#65)
-- Account api test improvements (#64)
-
-### Removed
-
-- Remove old api (#66)
-
-
-## [0.1.5] - 2026-07-07
-
-### Changed
-
 - Merge pull request #63 from diggsweden/fix/account-overwriting
-
-### Fixed
-
-- Check account uniqueness by device key kid
-
-
-## [0.1.4] - 2026-07-01
-
-### Added
-
-- Add HSM client id endpoints for accounts
-- Add missing crv (#62)
-- Add codeowners (#58)
-
-### Changed
-
 - Merge pull request #59 from diggsweden/feat/hsm-client-id
 - Bump rest-api-linter to v2.0.0 (#61)
 - Merge pull request #57 from diggsweden/chore/remove-sonarqube
 - Problem response (#56)
-
-### Removed
-
-- Remove sonarqube integration
-
-
-## [0.1.3] - 2026-05-19
-
-### Added
-
-- Add request-response logging (#55)
-
-### Changed
-
 - Pin actions to commit sha (#53)
-
-### Fixed
-
-- Fix commit sha (#54)
-
-
-## [0.1.2] - 2026-05-13
-
-### Added
-
-- Add sonarqube analysis (#52)
-- Add more tests for increased coverage (#49)
-
-### Changed
-
 - Merge pull request #50 from diggsweden/build/upgrade-spring-boot-4.0.6
 - Upgrade spring-boot to 4.0.6 to fix CVE-2026-40976
 - Bump reusable-ci to v2.8.2
-
-### Fixed
-
-- Email and personal identity number are now optional (#51)
-
-
-## [0.1.1] - 2026-04-30
-
-### Added
-
-- Add test tools
-
-### Changed
-
 - Bump gommitlint to 0.9.10, switch rumdl from ubi to aqua
 - Bump reusable-ci to v2.7.9
 - Merge pull request #43 from diggsweden/fix/use-main-version-of-reusable-integration
-
-### Fixed
-
-- Get blob within transaction (#48)
-- Test coverage improvement (#46)
-- Map string to blob (#45)
-- Handle walletKey and deviceKey similarly (#44)
-- Use main version of reusable integration script
-
-
-## [0.1.0] - 2026-04-23
-
-### Added
-
-- Add security envelope and wallet key to database (#37)
-- Add ecosystem integration test workflow
-
-### Changed
-
 - Feat/add key operations with api (#40)
 - Merge pull request #41 from diggsweden/chore/upgrade-java-25
 - Upgrade to java 25
@@ -171,20 +71,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Merge pull request #35 from diggsweden/feature/ecosystem-integration-test
 - Use gommitlint instead of conform
 - Update reusable-ci to v2.7.3
-
-### Fixed
-
-- Bump reusable integration workflow
-
-
-## [0.0.6] - 2026-03-10
-
-### Added
-
-- Add no-op version control linter
-
-### Changed
-
 - Merge pull request #33 from diggsweden/fix/use-gommitlint
 - Use gommitlint
 - Merge pull request #32 from diggsweden/build/fail-on-dirty-working-tree
@@ -197,33 +83,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update dependency org.assertj:assertj-core to v3.27.7 [security] (#24)
 - Update dependency prettier to v3.8.1 (#23)
 - Update actions/checkout action to v6.0.2 (#22)
-
-### Fixed
-
-- Bump hadolint to v2.14.0
-
-
-## [0.0.5] - 2026-01-19
-
-### Changed
-
 - Merge pull request #15 from diggsweden/renovate/lock-file-maintenance
 - Lock file maintenance
 - Merge pull request #7 from diggsweden/renovate/cgr.dev-chainguard-jre-latest
 - Update cgr.dev/chainguard/jre:latest docker digest to f7b0d54
 - Update dependency prettier to v3.8.0 (#20)
 - Update dependency com.nimbusds:nimbus-jose-jwt to v10.7 (#19)
-
-
-## [0.0.4] - 2026-01-15
-
-### Added
-
-- Add spotbugs exclude filter to suppress EI_EXPOSE_REP and EI_EXPOSE_REP2 errors
-- Add spotbugs exclude filter to suppress NM_METHOD_NAMING_CONVENTION errors
-
-### Changed
-
 - Update docker.io/library/eclipse-temurin docker tag to v25
 - Update actions/checkout action to v6
 - Update actions/setup-java action to v5
@@ -235,34 +100,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use reuseable ci 2.6.0
 - Change devbase-justkit name, improve dev doc
 - Update justfile and reuseable-ci
-
-### Fixed
-
-- Copy of ObjectMapper to avoid EI_EXPOSE_REP2 error
-- Correct a few lint errors
-
-### Removed
-
-- Remove now deprecated pmd rule
-- Remove setters from PublicKeyEntity and remove exclude filter for AccountEntity
-- Remove duplicate PMD rule
-
-
-## [0.0.3] - 2025-11-17
-
-### Fixed
-
-- Allow null telephonenumber and longer kid
-
-
-## [0.0.2] - 2025-11-04
-
-### Added
-
-- Add bare bone spring boot application
-
-### Changed
-
 - Refactor dto class and db-mappings
 - Happy case code and test
 - Bootstrap non-code files
@@ -270,23 +107,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Leave the ecosystem integration workflow out of the trial
+- Fix list indentation in DEVELOPMENT.md
+- Example json syntax (#84)
+- Api spec and log fix (#76)
+- Api component test improvements (#65)
+- Account api test improvements (#64)
+- Check account uniqueness by device key kid
+- Fix commit sha (#54)
+- Email and personal identity number are now optional (#51)
+- Get blob within transaction (#48)
+- Test coverage improvement (#46)
+- Map string to blob (#45)
+- Handle walletKey and deviceKey similarly (#44)
+- Use main version of reusable integration script
+- Bump reusable integration workflow
+- Bump hadolint to v2.14.0
+- Copy of ObjectMapper to avoid EI_EXPOSE_REP2 error
+- Correct a few lint errors
+- Allow null telephonenumber and longer kid
 - Fix license and megalinter
 
+### Removed
 
-[0.1.10]: https://github.com/diggsweden/wallet-account/compare/v0.1.9..v0.1.10
-[0.1.9]: https://github.com/diggsweden/wallet-account/compare/v0.1.8..v0.1.9
-[0.1.8]: https://github.com/diggsweden/wallet-account/compare/v0.1.7..v0.1.8
-[0.1.7]: https://github.com/diggsweden/wallet-account/compare/v0.1.6..v0.1.7
-[0.1.6]: https://github.com/diggsweden/wallet-account/compare/v0.1.5..v0.1.6
-[0.1.5]: https://github.com/diggsweden/wallet-account/compare/v0.1.4..v0.1.5
-[0.1.4]: https://github.com/diggsweden/wallet-account/compare/v0.1.3..v0.1.4
-[0.1.3]: https://github.com/diggsweden/wallet-account/compare/v0.1.2..v0.1.3
-[0.1.2]: https://github.com/diggsweden/wallet-account/compare/v0.1.1..v0.1.2
-[0.1.1]: https://github.com/diggsweden/wallet-account/compare/v0.1.0..v0.1.1
-[0.1.0]: https://github.com/diggsweden/wallet-account/compare/v0.0.6..v0.1.0
-[0.0.6]: https://github.com/diggsweden/wallet-account/compare/v0.0.5..v0.0.6
-[0.0.5]: https://github.com/diggsweden/wallet-account/compare/v0.0.4..v0.0.5
-[0.0.4]: https://github.com/diggsweden/wallet-account/compare/v0.0.3..v0.0.4
-[0.0.3]: https://github.com/diggsweden/wallet-account/compare/v0.0.2..v0.0.3
+- Remove personal account optionals in api (#99)
+- Remove the optional datatype for generated models (#98)
+- Remove mise paranoid setting (#93)
+- Remove old api (#66)
+- Remove sonarqube integration
+- Remove now deprecated pmd rule
+- Remove setters from PublicKeyEntity and remove exclude filter for AccountEntity
+- Remove duplicate PMD rule
+
+
 
 <!-- generated by git-cliff -->
